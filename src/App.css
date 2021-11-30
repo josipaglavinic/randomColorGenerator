@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.315);
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  width: 200px;
+}
+
+.list-item {
+  height: 50px;
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 5px;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.062);
+}
+
+* {
+  background-color: rgb(197, 197, 197);
+}
