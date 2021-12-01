@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import uuid from "uuid";
 import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [color, setColor] = useState("00000");
+  const [color, setColor] = useState("000000");
   const [colorsList, setColorsList] = useState([]);
+  const [colorInput, setColorInput] = useState("");
 
-  const handleNewItem = () => {
-    if (!colorsList.find((color) => color.color === color)) {
-      const newList = [...colorsList, { id: uuid(), color }];
-      setColorsList(newList);
-      console.log(colorsList);
-    }
+  useEffect(() => {
+    const handleNewItem = () => {
+      if (!colorsList.find((color) => color === colorInput)) {
+        const newList = [...colorsList, { id: uuid(), color }];
+        setColorsList(newList);
+        console.log(colorsList);
+      }
+    };
+    handleNewItem();
+  }, [color]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setColor(colorInput);
+    setColorInput("");
   };
   const randomColor = () => {
     axios
@@ -22,7 +32,7 @@ function App() {
       .then((response) => {
         // console.log(response.data.colors[0].hex);
         setColor(response.data.colors[0].hex);
-        handleNewItem();
+        // handleNewItem();
       })
       .catch((error) => {
         console.log(error);
@@ -49,6 +59,16 @@ function App() {
           </li>
         ))}
       </div>
+      <form onSubmit={handleSubmit}>
+        {" "}
+        <input
+          maxLength="6"
+          className="input"
+          onChange={(e) => setColorInput(e.target.value)}
+          placeholder="Enter hex color"
+          value={colorInput}
+        />{" "}
+      </form>
     </div>
   );
 }
