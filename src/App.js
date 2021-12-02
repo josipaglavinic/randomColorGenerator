@@ -102,6 +102,7 @@ function App() {
       <form onSubmit={handleSubmit}>
         {" "}
         <input
+          required
           maxLength="6"
           minLength="6"
           className="input"
