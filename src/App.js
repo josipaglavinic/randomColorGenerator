@@ -29,12 +29,10 @@ function App() {
     e.preventDefault();
     if (colorsList.find(({ color }) => color === colorInput)) {
       console.log("color exists");
-      setColorInput("");
     } else {
-      // handleNewItem();
       setColor(colorInput);
-      setColorInput("");
     }
+    setColorInput("");
   };
 
   const randomColor = () => {
@@ -43,9 +41,7 @@ function App() {
         `https://www.colr.org/json/color/random?query&timestamp=${new Date().getTime()}`
       )
       .then((response) => {
-        // console.log(response.data.colors[0].hex);
         setColor(response.data.colors[0].hex);
-        // handleNewItem();
       })
       .catch((error) => {
         console.log(error);
