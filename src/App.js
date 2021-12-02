@@ -69,7 +69,7 @@ function App() {
         style={{ color: `#${color}` }}
         onClick={() => randomColor()}
       >
-        Get random color
+        {colorInput ? colorInput : "Get random color"}
       </button>
       <div>
         <DragDropContext onDragEnd={handleOnDragEnd}>
