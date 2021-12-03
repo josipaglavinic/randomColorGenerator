@@ -17,6 +17,7 @@
 }
 
 .list-item {
+  overflow: hidden;
   height: 50px;
   display: grid;
   grid-template-columns: 50px 50px 50px;
@@ -26,8 +27,27 @@
   margin: 5px;
   font-size: 18px;
   background-color: rgba(0, 0, 0, 0.062);
+  border-radius: 5px;
+  /* text-shadow: 0.5px 0.5px #3636366c; */
+}
+
+.list-item:last-child {
+  font-weight: bold;
 }
 
 * {
   background-color: rgb(197, 197, 197);
+}
+
+.input {
+  border: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.315);
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  box-sizing: border-box;
+  margin-left: 20px;
 }
