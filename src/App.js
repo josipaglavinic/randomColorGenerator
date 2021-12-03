@@ -11,6 +11,10 @@ function App() {
 
   //unique color generated
   const handleNewItem = () => {
+    uniqueColors();
+  };
+
+  const uniqueColors = () => {
     if (!colorsList.find(({ color }) => color.color === color)) {
       const newList = [...colorsList, { id: uuid(), color }];
       setColorsList(newList);
@@ -31,6 +35,7 @@ function App() {
       console.log("color exists");
     } else {
       setColor(colorInput);
+      uniqueColors();
     }
     setColorInput("");
   };
@@ -54,7 +59,6 @@ function App() {
     const items = Array.from(colorsList);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
-
     setColorsList(items);
   }
 
